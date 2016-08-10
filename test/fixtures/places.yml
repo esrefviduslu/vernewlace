@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: places
+#
+#  id             :integer          not null, primary key
+#  name           :string
+#  address        :string
+#  phone_number   :string
+#  contact_mail   :string
+#  established_at :date
+#  description    :text
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  phone_number: MyString
+  contact_mail: MyString
+  established_at: 2016-08-09
+  description: MyText
+
+two:
+  name: MyString
+  address: MyString
+  phone_number: MyString
+  contact_mail: MyString
+  established_at: 2016-08-09
+  description: MyText
