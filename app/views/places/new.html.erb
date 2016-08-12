@@ -1,0 +1,21 @@
+<h1>Create a new Place</h1>
+
+<% if @place.errors.any? %>
+	<h3>
+	<%=  @place.errors.full_messages.join(", ") %>
+	</h3>
+<%end%>
+
+<form action="<%= places_path %>" method="post">
+	</br>
+	Name: <input type="text" name="name" value="<%= @place.name%>">
+	</br>
+	Address: <textarea name="address" rows="8" cols="40" ><%= @place.address%></textarea>
+	</br>
+	Phone Number: <input type="text" name="phone_number" >
+	</br>
+	Contact Mail: <input type="text" name="contact_mail" value="<%= @place.contact_mail%>">
+	</br>
+	<button type="submit" name="button" >Gönder</button> 
+
+</form>
