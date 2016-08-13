@@ -6,10 +6,11 @@
 <b>Contact Mail:</b>	<%= @place.contact_mail %>
 <b>Established at:</b> <%= @place.established_at %>
 <b>Description: </b> <%= @place.description %>
+<b>Category: </b> <%= @place.category.name%>
 </li>
 
 <%= link_to "Back to places list", places_path %>
 <br/>
 <%= link_to "Edit place", edit_place_path %>
 <br/>
-<%= link_to "Delete place", place_path(@place), method: :delete %>
+<%= link_to "Delete place", place_path(@place), method: :delete, data:{confirm: "Emin misiniz?"}%>

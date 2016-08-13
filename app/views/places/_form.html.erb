@@ -9,8 +9,10 @@
 	<%= f.label :contact_mail%><br>
 	<%= f.text_field :contact_mail, placeholder: 'contact_mail' %><br><br>
 	<%= f.label :established_at%><br>
-	<%= f.date_select :established_at, placeholder: 'established_at' %><br><br>
+	<%= f.date_select :established_at, star_year: 1900, end_year: Date.today.year, placeholder: 'established_at' %><br><br>
 	<%= f.label :description%><br>
 	<%= f.text_area :description, placeholder: 'description', rows: 10 %><br><br>
+	<%= f.select :category_id, @categories %><br><br>
+
 	<%= f.submit 'Gonder'%>
 <% end %>
