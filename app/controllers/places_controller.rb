@@ -15,6 +15,7 @@ class PlacesController < ApplicationController
 	def create 
 		@place = Place.new(place_params)
 		if @place.save
+			flash[:success] = 'İşlem başarıyla tamamlandı'
 			redirect_to place_path(@place)
 		else
 			render :new
