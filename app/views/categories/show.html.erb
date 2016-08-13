@@ -1,0 +1,14 @@
+<h1> <%= @category.name %></h1>
+
+<% @category.places.each do |place| %>
+	<br/>
+	<li>
+	<%= link_to place.name, place_path(place) %>
+	<b>Address</b>	<%= place.address %>
+	<b>Phone Number:</b>	<%= place.phone_number %>
+	<b>Contact Mail:</b>	<%= place.contact_mail %>
+	<b>Established at:</b> <%= place.established_at %>
+	<b>Description: </b> <%= place.description %>
+	<b>Category: </b> <%= place.category.name%>
+	</li>
+<%end%>

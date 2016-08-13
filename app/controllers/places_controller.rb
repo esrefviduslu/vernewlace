@@ -11,6 +11,7 @@ class PlacesController < ApplicationController
 	end
 
 	def show
+ 		@comments = @place.comments
 	end
 
 	def create 
