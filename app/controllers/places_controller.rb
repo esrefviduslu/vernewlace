@@ -11,6 +11,7 @@ class PlacesController < ApplicationController
 	end
 
 	def show
+		@comment = Comment.new
  		@comments = @place.comments
 	end
 
@@ -55,5 +56,5 @@ class PlacesController < ApplicationController
 	def place_params
 		params.require(:place).permit(:name, :address, :phone_number, :contact_mail, :established_at, :description, :category_id)
 	end
-		
+	
 end
