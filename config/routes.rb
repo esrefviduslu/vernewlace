@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'comments/create'
-
+ 	devise_for :customers
+ 	
 	root  'places#index'
 	resources :places
 	resources :categories, only: [:show, :index]
