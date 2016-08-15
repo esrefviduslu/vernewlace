@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <h1>Customer Login</h1>
     <% if current_customer.present? %>
       <li><a href="#"><%= current_customer.email %></a></li>
       <li><%= link_to "Logout", destroy_customer_session_path, method: :delete %></li>
@@ -16,7 +17,14 @@
       <li><%= link_to "Login", new_customer_session_path %></li>
       <li><%= link_to "Register", new_customer_registration_path %></li>
     <% end %>
-
+    <h1>Owner Login</h1>
+    <% if current_owner.present? %>
+      <li><a href="#"><%= current_owner.email %></a></li>
+      <li><%= link_to "Logout", destroy_owner_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Login", new_owner_session_path %></li>
+      <li><%= link_to "Register", new_owner_registration_path %></li>
+    <% end %>
     <%= render "flash" %>
     <%= yield %>
   </body>

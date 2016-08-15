@@ -29,6 +29,10 @@ Display Place
 <br/>
 <%= link_to "Back to places list", places_path %>
 <br/>
-<%= link_to "Edit place", edit_place_path %>
-<br/>
-<%= link_to "Delete place", place_path(@place), method: :delete, data:{confirm: "Emin misiniz?"}%>
+<% if current_owner.present? and current_owner.id == @place.owner_id %>
+  <br/>
+  <%= link_to "Edit place", edit_place_path(@place) %>
+  <br/>
+  <%= link_to "Delete place", place_path(@place), method: :delete, data:{confirm: "Emin misiniz?"} %>
+<% end %>
+<br/><br/><br/><br/>

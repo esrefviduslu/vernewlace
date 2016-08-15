@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :owners
  	devise_for :customers
  	
 	root  'places#index'

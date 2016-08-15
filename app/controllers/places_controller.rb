@@ -1,6 +1,8 @@
 class PlacesController < ApplicationController
+	before_action :authenticate_owner!, except: [:show, :index]
 	before_action :set_place, only: [:show, :update, :edit, :destroy]
-	
+	before_action :authorize_owner!, only: [:edit, :update, :destroy]
+
 	def new
 		@place = Place.new
 		load_categories
@@ -17,6 +19,7 @@ class PlacesController < ApplicationController
 
 	def create 
 		@place = Place.new(place_params)
+		@place = current_owner.places.new(place_params)
 		if @place.save
 			flash[:success] = 'İşlem başarıyla tamamlandı'
 			redirect_to place_path(@place)
@@ -45,6 +48,11 @@ class PlacesController < ApplicationController
 	end
 
 	private
+
+	def authorize_owner!
+    	redirect_to root_path, notice: "Not authorized" unless @place.owner_id == current_owner.id
+  	end
+
 	def set_place
 		@place = Place.find(params[:id])
 	end
