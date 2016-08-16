@@ -19,14 +19,18 @@ class Place < ApplicationRecord
 	validates_format_of :contact_mail, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
 
 	validate :check_established_at
+    
+    belongs_to :category
+	has_many :comments, dependent: :destroy
+	belongs_to :owner
+	has_many :reservations, dependent: :destroy
+	
+	private
 
 	def check_established_at
 		if established_at.present? && established_at >= Date.today
 			errors.add(:established_at, "Kuruluş tarihi gecelek veya bugün olamaz!!")
 		end
 	end
-
-	belongs_to :category
-	has_many :comments
-	belongs_to :owner
+	
 end

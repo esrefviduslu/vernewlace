@@ -1,0 +1,9 @@
+<% if current_customer.present? %>
+	<%= form_for [@place, Reservation.new] do |p| %>
+		<%= p.label :date%><br>
+		<%= p.date_select :date, start_year: Date.today.year, end_year: 2050 , placeholder: 'Reservation Date' %><br><br>
+		<%= p.label :number_of_people %><br>
+		<%= p.text_field :number_of_people, placeholder: 'Number of People' %><br><br>
+		<%= p.submit 'Send'%>
+	<% end %>
+<%end%>

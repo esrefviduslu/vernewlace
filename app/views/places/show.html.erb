@@ -10,22 +10,13 @@ Display Place
 <b>Category: </b> <%= @place.category.name%>
 </li>
 <br/><br/>
-<b>Comments</b>
+<%= render 'reservations/form' %>
 <br/><br/>
-<% @comments.each do |c| %>
-	<li>
-	<%= c.body %><br/><br/>
-	</li>
-<%end%>
+<%= render 'reservations/reservation_list' %><br/>
+<b>Comments</b>
+<%= render 'comments/comment_list' %>
 <br/>
-
-<%= form_for @comment do |f| %>
-	<%= f.label :Comment%><br>
-	<%= f.text_area :body, placeholder: 'comment', rows: 10 %><br><br>
-	<%= f.hidden_field :place_id, :value => @place.id %>
-	<%= f.submit 'Gonder'%>
-<% end %>
-
+<%= render 'comments/comment_form' %>
 <br/>
 <%= link_to "Back to places list", places_path %>
 <br/>

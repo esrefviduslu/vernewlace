@@ -1,0 +1,8 @@
+<% if current_customer.present? %>
+<%= form_for [@place, @place.comments.build] do |f| %>
+	<%= f.label :Comment%><br>
+	<%= f.text_area :body, placeholder: 'comment', rows: 10 %><br><br>
+	<%= f.hidden_field :place_id, :value => @place.id %>
+	<%= f.submit 'Gonder'%>
+<% end %>
+<%end%>

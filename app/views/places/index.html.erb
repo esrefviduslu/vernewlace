@@ -11,7 +11,11 @@
 	</li>
 <%end%>
 <br/>
+<% if current_owner.present? %>
 <%= link_to "Crate new place", new_place_path %>
+<%end%>
 <br/>
 <br/>
 <%= link_to "List Categories", categories_path %>
+<br/>
+<br/>

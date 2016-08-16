@@ -1,0 +1,14 @@
+<% if current_owner.present? and current_owner.id == @place.owner_id %>
+<br/><br/>	<b>Reservations</b>
+	<% @place.reservations.each do |reserv| %>
+		<small><%= reserv.customer.email %></small>
+		<p>
+	        <%= reserv.date %><br/><br/>
+	        <%= reserv.number_of_people %>
+	        <% if current_customer.present? && reserv.customer_id == current_customer.id %>
+	          <small><%= link_to "Delete" %></small>
+	        <% end %>
+	      </p>
+	<%end%>
+	<br/>
+<%end%>

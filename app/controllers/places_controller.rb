@@ -13,13 +13,11 @@ class PlacesController < ApplicationController
 	end
 
 	def show
-		@comment = Comment.new
- 		@comments = @place.comments
 	end
 
 	def create 
-		@place = Place.new(place_params)
 		@place = current_owner.places.new(place_params)
+
 		if @place.save
 			flash[:success] = 'İşlem başarıyla tamamlandı'
 			redirect_to place_path(@place)
@@ -53,12 +51,12 @@ class PlacesController < ApplicationController
     	redirect_to root_path, notice: "Not authorized" unless @place.owner_id == current_owner.id
   	end
 
-	def set_place
-		@place = Place.find(params[:id])
-	end
-
 	def load_categories
 		@categories = Category.all.collect {|c| [c.name, c.id]}
+	end
+
+	def set_place
+		@place = Place.find(params[:id])
 	end
 
 	def place_params

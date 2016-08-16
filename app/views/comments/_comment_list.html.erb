@@ -1,0 +1,11 @@
+<br/><br/>
+<% @place.comments.each do |comment| %>
+	<small><%= comment.customer.email %> says:</small>
+	<p>
+        <%= comment.body %>
+        <% if current_customer.present? && comment.customer_id == current_customer.id %>
+          <small><%= link_to "Delete", place_comment_path(@place, comment), method: :delete %></small>
+        <% end %>
+      </p>
+<%end%>
+<br/>
