@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
 
   	def destroy
 	    @reservation.destroy
-	    redirect_to @place, notice: "Comment was deleted"
+	    redirect_to @place, notice: "Reservation was deleted"
   	end
 
 	private

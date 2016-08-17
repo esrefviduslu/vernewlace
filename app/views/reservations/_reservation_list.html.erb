@@ -1,11 +1,11 @@
 
 <br/><br/>	<b>Reservations</b>
-	<% @place.reservations.each do |reserv| %>
-		<small><%= reserv.customer.email %></small>
+	<% @place.reservations.each do |reservation| %>
+		<small><%= reservation.customer.email %></small>
 		<p>
-	        <%= reserv.date %><br/><br/>
-	        <%= reserv.number_of_people %>
-	        <% if current_customer.present? && reserv.customer_id == current_customer.id %>
+	        <%= reservation.date %><br/><br/>
+	        <%= reservation.number_of_people %>
+	        <% if current_customer.present? && reservation.customer_id == current_customer.id %>
 	          <small><%= link_to "Delete" %></small>
 	        <% end %>
 	      </p>
