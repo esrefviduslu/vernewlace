@@ -29,5 +29,11 @@ Place.create( name: "Merthan Cafe", address: "Manisa", phone_number: "4556", con
 Place.create( name: "X-Garden", address: "İzmir", phone_number: "46513212", contact_mail: "xgarden@mynet.com", established_at: "2007-03-30", description: "Pub lounge", category_id: 2, owner: ow2)
 Place.create( name: "Ooze Venue", address: "İzmir/Bornova", phone_number: "2325412312", contact_mail: "ooze@gmail.com", established_at: "2009-09-17", description: "Live performance stage", category_id: 1, owner: ow1)
 
+SocialProfile.create(place_id: 1)
+SocialProfile.create(place_id: 2)
+SocialProfile.create(place_id: 3)
+SocialProfile.create(place_id: 4)
+SocialProfile.create(place_id: 5)
+SocialProfile.create(place_id: 6)
 
 puts "Seed created"

@@ -14,5 +14,18 @@
 	<%= f.text_area :description, placeholder: 'description', rows: 10 %><br><br>
 	<%= f.select :category_id, @categories %><br><br>
 
+	
+	<%= f.fields_for :social_profile do |sf|%>
+		<h3>Social Profile</h3>
+		<%= sf.label :facebook %><br>
+		<%= sf.text_field :facebook, placeholder: 'Facebook' %><br><br>
+		<%= sf.label :twitter %><br>
+		<%= sf.text_field :twitter, placeholder: 'Twitter' %><br><br>
+		<%= sf.label :instagram %><br>
+		<%= sf.text_field :instagram, placeholder: 'İnstagram' %><br><br>
+		<%= sf.label :foursquare %><br>
+		<%= sf.text_field :foursquare, placeholder: 'Foursquare' %><br><br>
+	<%end%>
+
 	<%= f.submit 'Gonder'%>
 <% end %>

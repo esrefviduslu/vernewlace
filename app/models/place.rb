@@ -24,7 +24,10 @@ class Place < ApplicationRecord
 	has_many :comments, dependent: :destroy
 	belongs_to :owner
 	has_many :reservations, dependent: :destroy
-	
+	has_one :social_profile
+
+	accepts_nested_attributes_for :social_profile
+	#has_many :customers, through :reservations // bu yapılcak
 	private
 
 	def check_established_at
