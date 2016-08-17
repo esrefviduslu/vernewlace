@@ -1,4 +1,4 @@
-<% if current_owner.present? and current_owner.id == @place.owner_id %>
+
 <br/><br/>	<b>Reservations</b>
 	<% @place.reservations.each do |reserv| %>
 		<small><%= reserv.customer.email %></small>
@@ -11,4 +11,3 @@
 	      </p>
 	<%end%>
 	<br/>
-<%end%>
