@@ -3,29 +3,38 @@
   <head>
     <title>Vernewlace</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <h1>Customer Login</h1>
-    <% if current_customer.present? %>
+  <%= render "layouts/header" %>
+<!--  <% if current_customer.present? %>
       <li><a href="#"><%= current_customer.email %></a></li>
-      <li><%= link_to "Logout", destroy_customer_session_path, method: :delete %></li>
+      <li><%= link_to "Logout", destroy_customer_session_path,  class: 'btn btn-success', method: :delete %></li>
     <% else %>
-      <li><%= link_to "Login", new_customer_session_path %></li>
-      <li><%= link_to "Register", new_customer_registration_path %></li>
+      <li><%= link_to "Login", new_customer_session_path, class: 'btn btn-success' %></li>
+      <li><%= link_to "Register", new_customer_registration_path,  class: 'btn btn-success' %></li>
     <% end %>
     <h1>Owner Login</h1>
     <% if current_owner.present? %>
       <li><a href="#"><%= current_owner.email %></a></li>
-      <li><%= link_to "Logout", destroy_owner_session_path, method: :delete %></li>
+      <li><%= link_to "Logout", destroy_owner_session_path, class: 'btn btn-success', method: :delete %></li>
     <% else %>
-      <li><%= link_to "Login", new_owner_session_path %></li>
-      <li><%= link_to "Register", new_owner_registration_path %></li>
-    <% end %>
+      <li><%= link_to "Login", new_owner_session_path, class: 'btn btn-success' %></li>
+      <li><%= link_to "Register", new_owner_registration_path, class: 'btn btn-success' %></li>
+    <% end %> -->
     <%= render "flash" %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+ <!--   <h1>Customer Login</h1>
+    -->
   </body>
 </html>
