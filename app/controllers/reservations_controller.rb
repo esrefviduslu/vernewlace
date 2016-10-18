@@ -5,20 +5,20 @@ class ReservationsController < ApplicationController
 	before_action :authorize_customer!, only: [:destroy]
 
 	def create
-	    @reservation = @place.reservations.new(reserv_params) 
-	    @reservation.customer = current_customer
+		@reservation = @place.reservations.new(reserv_params)
+		@reservation.customer = current_customer
 
-	    if @reservation.save
-	      redirect_to @place, notice: "Reservation was saved."
-	    else
-	      redirect_to @place, notice: "Reservation is not valid."
-	    end
-  	end
+		if @reservation.save
+			redirect_to @place, notice: "Reservation was saved."
+		else
+			redirect_to @place, notice: "Reservation is not valid."
+		end
+	end
 
-  	def destroy
-	    @reservation.destroy
-	    redirect_to @place, notice: "Reservation was deleted"
-  	end
+	def destroy
+		@reservation.destroy
+		redirect_to @place, notice: "Reservation was deleted"
+	end
 
 	private
 	def set_reservation
@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def authorize_customer!
-  		redirect_to @place, notice: "Not authorized" unless @reservation.customer_id == current_customer.id
+		redirect_to @place, notice: "Not authorized" unless @reservation.customer_id == current_customer.id
 	end
 
 	def set_place

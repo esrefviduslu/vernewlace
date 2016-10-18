@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+	respond_to :html, :json
 	before_action :authenticate_owner!, except: [:show, :index]
 	before_action :set_place, only: [:show, :update, :edit, :destroy]
 	before_action :authorize_owner!, only: [:edit, :update, :destroy]
@@ -14,6 +15,7 @@ class PlacesController < ApplicationController
 	end
 
 	def show
+		@place = Place.find(params[:id])
 	end
 
 	def create 
@@ -33,12 +35,10 @@ class PlacesController < ApplicationController
 	end
 
 	def update
-		if @place.update(place_params)
-			redirect_to place_path(@place)
-		else
-			load_categories
-			render :edit
-		end
+		@place = Place.find(params[:id])
+		@place.update(place_params)
+		load_categories
+		respond_with_bip(@place)
 	end
 
 	def destroy

@@ -12,7 +12,7 @@
 	<%= f.date_select :established_at, end_year: Date.today.year, start_year: 1950,  placeholder: 'established_at' %><br><br>
 	<%= f.label :description%><br>
 	<%= f.text_area :description, placeholder: 'description', rows: 10 %><br><br>
-	<%= f.select :category_id, @categories %><br><br>
+	<%= f.select :category_id, Category::list_categories %><br><br>
 
 	
 	<%= f.fields_for :social_profile do |sf|%>

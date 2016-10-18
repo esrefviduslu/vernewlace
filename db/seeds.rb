@@ -9,8 +9,8 @@
 ow1 = Owner.create( email: "owner@gmail.com", password: "123456")
 ow2 = Owner.create( email: "owner2@gmail.com", password: "123456")
 
-c1 = Customer.create( email: "esref@gmail.com", password: "123456")
-c2 = Customer.create( email: "esref2@gmail.com", password: "123456")
+c1 = Customer.create( email: "user@gmail.com", password: "123456")
+c2 = Customer.create( email: "user2@gmail.com", password: "123456")
 
 Category.create( name: "Bar")
 Category.create( name: "Pub")

@@ -16,11 +16,11 @@
 class Place < ApplicationRecord
 	validates :name, :address, presence: true
 	validates :phone_number, numericality: {only_integer: true}
-	validates_format_of :contact_mail, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
+	validates_format_of :contact_mail, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/, message: "Invalid email!"
 
 	validate :check_established_at
     
-    belongs_to :category
+	belongs_to :category
 	has_many :comments, dependent: :destroy
 	belongs_to :owner
 	has_many :reservations, dependent: :destroy
@@ -32,8 +32,8 @@ class Place < ApplicationRecord
 
 	def check_established_at
 		if established_at.present? && established_at >= Date.today
-			errors.add(:established_at, "Kuruluş tarihi gecelek veya bugün olamaz!!")
+			errors.add(:established_at, "Kuruluş tarihi gecelek bir tarih veya bugün olamaz!!")
 		end
 	end
-	
+
 end
