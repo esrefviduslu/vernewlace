@@ -7,7 +7,7 @@ Display Place
 	<b>Contact Mail:</b>	<%= best_in_place @place, :contact_mail %>
 	<b>Established at:</b> <%= @place.established_at %>
 	<b>Description: </b> <%= @place.description %>
-	<b>Category: </b> <%= best_in_place @place, :category_id, :type => :select, :collection => Category::list_categories%>
+  <b>Category: </b> <%= best_in_place @place, :category_id, :type => :select, :collection => Category::list_categories%>
   <b>Facebook: </b> <%= @place.social_profile.facebook%>
 </li>
 <br/><br/>
