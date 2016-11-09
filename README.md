@@ -25,3 +25,5 @@ Things you may want to cover:
 
 ## TEST branch for github --------
 #Pull request gönderip bırakıcam.
+
+#readme merged denemesi karşı tarafa aktarılıp silinecek mi?
