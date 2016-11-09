@@ -20,6 +20,8 @@ Category.create( name: "Shisha Cafe")
 Category.create( name: "Cafe")
 Category.create( name: "Restoran")
 Category.create( name: "Pavyon")
+Category.create( name: "Gazino")
+Category.create( name: "University Cafe")
 
 Place.create( name: "Ottoman Nargile Atölyesi", address: "İzmir/Bornova", phone_number: "465465", contact_mail: "ottoman@gmail.com", established_at: "2016-08-12", description: "Nargileci", category_id: 3, owner: ow2)
 Place.create( name: "Lobby Bistro", address: "Manisa", phone_number: "123554312", contact_mail: "lobby@gmail.com", established_at: "2012-11-03", description: "Bistro",  category_id: 2, owner: ow1)
