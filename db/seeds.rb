@@ -8,15 +8,18 @@
 
 ow1 = Owner.create( email: "owner@gmail.com", password: "123456")
 ow2 = Owner.create( email: "owner2@gmail.com", password: "123456")
+ow3 = Owner.create( email: "owner3@gmail.com", password: "123456")
 
 c1 = Customer.create( email: "user@gmail.com", password: "123456")
 c2 = Customer.create( email: "user2@gmail.com", password: "123456")
+c3 = Customer.create( email: "user3@gmail.com", password: "123456")
 
 Category.create( name: "Bar")
 Category.create( name: "Pub")
-Category.create( name: "Nargile Cafe")
+Category.create( name: "Shisha Cafe")
 Category.create( name: "Cafe")
 Category.create( name: "Restoran")
+Category.create( name: "Pavyon")
 
 Place.create( name: "Ottoman Nargile Atölyesi", address: "İzmir/Bornova", phone_number: "465465", contact_mail: "ottoman@gmail.com", established_at: "2016-08-12", description: "Nargileci", category_id: 3, owner: ow2)
 Place.create( name: "Lobby Bistro", address: "Manisa", phone_number: "123554312", contact_mail: "lobby@gmail.com", established_at: "2012-11-03", description: "Bistro",  category_id: 2, owner: ow1)
