@@ -35,10 +35,12 @@ class PlacesController < ApplicationController
 	end
 
 	def update
-		@place = Place.find(params[:id])
-		@place.update(place_params)
-		load_categories
-		respond_with_bip(@place)
+		if @place.update(place_params)
+			redirect_to place_path(@place)
+		else
+			load_categories
+			render :edit
+		end
 	end
 
 	def destroy

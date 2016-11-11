@@ -1,16 +1,21 @@
-Display Place
+<h2>Display Place</h2>
 <br/><br/>
 <li>
 	<b>Name:</b>	<%=  best_in_place @place, :name %>
-	<b>Address</b>	<%= best_in_place @place, :address %>
+	<b>Address</b>	<%= best_in_place @place, :address %> </li>
+<li>
 	<b>Phone Number:</b>	<%= @place.phone_number %>
-	<b>Contact Mail:</b>	<%= best_in_place @place, :contact_mail %>
+	<b>Contact Mail:</b>	<%= best_in_place @place, :contact_mail %> </li>
+<li>
 	<b>Established at:</b> <%= @place.established_at %>
 	<b>Description: </b> <%= @place.description %>
-  <b>Category: </b> <%= best_in_place @place, :category_id, :type => :select, :collection => Category::list_categories%>
+  <b>Category: </b> <%= best_in_place @place, :category_id, :type => :select, :collection => Category::list_categories%> </li>
+<li>
   <b>Facebook: </b> <%= @place.social_profile.facebook%>
+  <b>Twitter: </b> <%= @place.social_profile.twitter%>
+  <b>Instagram: </b> <%= @place.social_profile.instagram%>
+  <b>Foursquare: </b> <%= @place.social_profile.foursquare%>
 </li>
-<br/><br/>
 <%= render 'reservations/form' %>
 <br/><br/>
 <%= render 'reservations/reservation_list' %><br/>
@@ -26,9 +31,4 @@ Display Place
   <%= link_to "Edit place", edit_place_path(@place) %>
   <br/>
   <%= link_to "Delete place", place_path(@place), method: :delete, data:{confirm: "Emin misiniz?"} %>
-<<<<<<< Updated upstream
 <% end %>
-<br/><br/><br/><br/>
-=======
-<% end %>
->>>>>>> Stashed changes
