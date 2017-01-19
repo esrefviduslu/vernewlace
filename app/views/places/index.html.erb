@@ -1,15 +1,50 @@
-<% @places.each do |place| %>
-	<br/>
-	<li>
-	<b>Name:</b>	<a href="<%= place_path(place) %>"><%= place.name %></a>
-	<b>Address</b>	<%= place.address %>
-	<b>Phone Number:</b>	<%= place.phone_number %>
-	<b>Contact Mail:</b>	<%= place.contact_mail %>
-	<b>Established at:</b> <%= place.established_at%>
-	<b>Description:</b> <%= place.description %>
-	<b>Category: </b> <%= place.category.name %>
-	</li>
-<%end%>
+
+<%= search_form_for @search do |f|%>
+  <div class="field">
+    <%= f.label :name_cont, "Name contains"%>
+    <%= f.text_field :name_cont %>
+  </div>
+  <div class="field">
+    <%= f.label :address_cont, "Address contains"%>
+    <%= f.text_field :address_cont %>
+  </div>
+  <div class="field">
+    <%= f.label :established_at_lteq, "Before Established"%>
+    <%= f.date_select :established_at_lteq, :start_year => Date.current.year, :end_year => 1920, discard_day: true, discard_month: true %>
+  </div>
+  <div class="actions"> <%= f.submit "Search" %> </div>
+<% end %>
+
+
+<div class="table">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th><%= sort_link @search, :name, "Name" %></th>
+        <th><%= sort_link @search, :address,"Address" %></th>
+        <th><%= "Phone Number" %></th>
+        <th><%= sort_link @search, :contact_mail,"Contact Mail" %></th>
+        <th><%= sort_link @search, :established_at,"Established At" %></th>
+        <th><%= "Description" %></th>
+        <th><%= "Category Name" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @places.each do |place| %>
+        <tr>
+          <td><a href="<%= place_path(place) %>"><%= place.name %></a></td>
+          <td><%= place.address %></td>
+          <td><%= place.phone_number %></td>
+          <td><%= place.contact_mail %></td>
+          <td><%= place.established_at %></td>
+          <td><%= place.description %></td>
+          <td><%= place.category.name %></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+
 <br/>
 <% if current_owner.present? %>
 <%= link_to "Crate new place", new_place_path %>

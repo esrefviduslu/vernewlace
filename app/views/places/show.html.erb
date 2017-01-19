@@ -1,34 +1,28 @@
 <h2>Display Place</h2>
 <br/><br/>
 <li>
-	<b>Name:</b>	<%=  best_in_place @place, :name %>
-	<b>Address</b>	<%= best_in_place @place, :address %> </li>
+	<b>Name:</b>	<%= @place.name %>
+	<b>Address</b>	<%= @place.address %> </li>
 <li>
 	<b>Phone Number:</b>	<%= @place.phone_number %>
-	<b>Contact Mail:</b>	<%= best_in_place @place, :contact_mail %> </li>
+	<b>Contact Mail:</b>	<%=  @place.contact_mail %> </li>
 <li>
 	<b>Established at:</b> <%= @place.established_at %>
 	<b>Description: </b> <%= @place.description %>
-  <b>Category: </b> <%= best_in_place @place, :category_id, :type => :select, :collection => Category::list_categories%> </li>
+  <b>Category: </b> <%=  @place.category.name%> </li>
 <li>
   <b>Facebook: </b> <%= @place.social_profile.facebook%>
   <b>Twitter: </b> <%= @place.social_profile.twitter%>
   <b>Instagram: </b> <%= @place.social_profile.instagram%>
   <b>Foursquare: </b> <%= @place.social_profile.foursquare%>
 </li>
-<%= render 'reservations/form' %>
-<br/><br/>
-<%= render 'reservations/reservation_list' %><br/>
+<br/>
 <b>Comments</b>
 <%= render 'comments/comment_list' %>
 <br/>
 <%= render 'comments/comment_form' %>
-<br/>
-<%= link_to "Back to places list", places_path %>
-<br/>
+<h4><%= link_to "Back to places list", places_path %></h4>
 <% if current_owner.present? and current_owner.id == @place.owner_id %>
-  <br/>
-  <%= link_to "Edit place", edit_place_path(@place) %>
-  <br/>
-  <%= link_to "Delete place", place_path(@place), method: :delete, data:{confirm: "Emin misiniz?"} %>
+    <h4><%= link_to "Edit place", edit_place_path(@place) %></h4>
+    <h4><%= link_to "Delete place", place_path(@place), method: :delete, data:{confirm: "Emin misiniz?"} %></h4>
 <% end %>

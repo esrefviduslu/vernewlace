@@ -11,7 +11,8 @@ class PlacesController < ApplicationController
 	end
 
 	def index
-		@places = Place.all.order(:id)
+		@search = Place.search(params[:q])
+		@places = @search.result
 	end
 
 	def show
@@ -51,8 +52,8 @@ class PlacesController < ApplicationController
 	private
 
 	def authorize_owner!
-    	redirect_to root_path, notice: "Not authorized" unless @place.owner_id == current_owner.id
-  	end
+		redirect_to root_path, notice: "Not authorized" unless @place.owner_id == current_owner.id
+	end
 
 	def load_categories
 		@categories = Category.all.collect {|c| [c.name, c.id]}
