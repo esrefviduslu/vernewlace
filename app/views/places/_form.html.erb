@@ -1,31 +1,20 @@
 <br/><br/><br/>
-<%= form_for @place do |f| %>
-	<%= f.label :name %><br>
-	<%= f.text_field :name, placeholder: 'name' %><br><br>
-	<%= f.label :address%><br>
-	<%= f.text_area :address, placeholder: 'adress', rows: 10 %><br><br>
-	<%= f.label :phone_number%><br>
-	<%= f.text_field :phone_number, placeholder: 'phone_number' %><br><br>
-	<%= f.label :contact_mail%><br>
-	<%= f.text_field :contact_mail, placeholder: 'contact_mail' %><br><br>
-	<%= f.label :established_at%><br>
-	<%= f.date_select :established_at, end_year: Date.today.year, start_year: 1950,  placeholder: 'established_at' %><br><br>
-	<%= f.label :description%><br>
-	<%= f.text_area :description, placeholder: 'description', rows: 10 %><br><br>
-	<%= f.select :category_id, Category::list_categories %><br><br>
+<%= simple_form_for @place do |f| %>
+    <%= f.input :name  %>
+    <%= f.input :address  %>
+    <%= f.input :phone_number  %>
+    <%= f.input :contact_mail  %>
+    <%= f.input :established_at  %>
+    <%= f.input :description  %>
+    <%= f.association :category, :include_blank => false  %>
 
-	
 	<%= f.fields_for :social_profile do |sf|%>
-		<h3>Social Profile</h3>
-		<%= sf.label :facebook %><br>
-		<%= sf.text_field :facebook, placeholder: 'Facebook' %><br><br>
-		<%= sf.label :twitter %><br>
-		<%= sf.text_field :twitter, placeholder: 'Twitter' %><br><br>
-		<%= sf.label :instagram %><br>
-		<%= sf.text_field :instagram, placeholder: 'İnstagram' %><br><br>
-		<%= sf.label :foursquare %><br>
-		<%= sf.text_field :foursquare, placeholder: 'Foursquare' %><br><br>
+        <h3>Social Profile</h3>
+        <%= sf.input :facebook  %>
+        <%= sf.input :twitter  %>
+        <%= sf.input :instagram  %>
+        <%= sf.input :foursquare  %>
 	<%end%>
 
-	<%= f.submit 'Gonder'%>
+	<%= f.button :submit%>
 <% end %>
