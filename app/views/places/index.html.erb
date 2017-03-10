@@ -27,6 +27,7 @@
         <th><%= sort_link @search, :established_at,"Established At" %></th>
         <th><%= "Description" %></th>
         <th><%= "Category Name" %></th>
+        <th><%= "QR Code" %></th>
       </tr>
     </thead>
     <tbody>
@@ -39,12 +40,12 @@
           <td><%= place.established_at %></td>
           <td><%= place.description %></td>
           <td><%= place.category.name %></td>
+          <td><%= image_tag place.qr_code %></td>
         </tr>
       <%end%>
     </tbody>
   </table>
 </div>
-
 <br/>
 <% if current_owner.present? %>
 <%= link_to "Crate new place", new_place_path %>

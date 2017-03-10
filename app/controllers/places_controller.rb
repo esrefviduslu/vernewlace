@@ -66,7 +66,7 @@ class PlacesController < ApplicationController
 	def place_params
 		params.require(:place).permit(
 			:name, :address, :phone_number, :contact_mail, 
-			:established_at, :description, :category_id,
+			:established_at, :description, :category_id, :qr_code,
 			social_profile_attributes: [:id, :facebook, :twitter, :instagram, :foursquare]
 			)
 	end
