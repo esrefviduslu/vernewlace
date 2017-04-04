@@ -9,8 +9,10 @@ development: &default
   port: 5432
   username: postgres
   password: 12341234
+
 test:
   <<: *default
   database: vernewlace_test
   username: postgres
   password: 12341234
+

@@ -11,7 +11,8 @@ class PlacesController < ApplicationController
 	end
 
 	def index
-		@places = Place.all.order(:id)
+		@search = Place.search(params[:q])
+		@places = @search.result
 	end
 
 	def show
@@ -35,10 +36,12 @@ class PlacesController < ApplicationController
 	end
 
 	def update
-		@place = Place.find(params[:id])
-		@place.update(place_params)
-		load_categories
-		respond_with_bip(@place)
+		if @place.update(place_params)
+			redirect_to place_path(@place)
+		else
+			load_categories
+			render :edit
+		end
 	end
 
 	def destroy
@@ -49,8 +52,8 @@ class PlacesController < ApplicationController
 	private
 
 	def authorize_owner!
-    	redirect_to root_path, notice: "Not authorized" unless @place.owner_id == current_owner.id
-  	end
+		redirect_to root_path, notice: "Not authorized" unless @place.owner_id == current_owner.id
+	end
 
 	def load_categories
 		@categories = Category.all.collect {|c| [c.name, c.id]}
@@ -63,7 +66,7 @@ class PlacesController < ApplicationController
 	def place_params
 		params.require(:place).permit(
 			:name, :address, :phone_number, :contact_mail, 
-			:established_at, :description, :category_id,
+			:established_at, :description, :category_id, :qr_code,
 			social_profile_attributes: [:id, :facebook, :twitter, :instagram, :foursquare]
 			)
 	end

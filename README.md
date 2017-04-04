@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## TEST branch for github --------
+#Pull request gönderip bırakıcam.
+
+#Bitbucket denemesi 'feature/readme' branch.
