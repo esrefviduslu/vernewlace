@@ -8,9 +8,9 @@ development: &default
   host: localhost
   port: 5432
   username: postgres
-  password: 123412341234
+  password: 12341234
 test:
   <<: *default
   database: vernewlace_test
   username: postgres
-  password: 123412341234
+  password: 12341234
